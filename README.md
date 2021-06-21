@@ -82,4 +82,35 @@ ansible all -m yum -a "name=epel-release state=latest" --become --ask-become-pas
 ## Lecture 6:
 
 Writing our first playbook
+#### First Playbook
 
+```yaml
+---
+
+- hosts: all
+  become: true
+  tasks:
+  - name: update repo index
+    yum:
+      update_cache: yes
+  - name: install httpd package
+    yum:
+      name: httpd
+      state: latest
+```
+#### Second Playbook
+
+```yaml
+---
+
+- hosts: all
+  become: true
+  tasks:
+  - name: update repo index
+    yum:
+      update_cache: yes
+  - name: removing httpd package
+    yum:
+      name: httpd
+      state: absent
+```
