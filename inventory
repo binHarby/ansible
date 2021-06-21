@@ -1,3 +1,8 @@
-osboxes@192.168.0.145 apache_package=httpd php_package=php git_package=git 
-osboxes@192.168.0.148 apache_package=httpd php_package=php git_package=git 
-osboxes@192.168.0.135 apache_package=httpd php_package=php git_package=git 
+[web_server]
+osboxes@192.168.0.145
+
+[chat_server]
+osboxes@192.168.0.148
+
+[file_server]
+osboxes@192.168.0.135
