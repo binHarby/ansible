@@ -6,7 +6,19 @@
   - name: update repo index
     yum:
       update_cache: yes
+    #could also do 
+    ## when: ansible_distribution in ["Ubuntu","CentOS"]
+    #if you don't know the OS
+    #use the command 
+    #ansible all -m gather_facts --limit <an_ip> |grep distri
+    when: ansible_distribution == "CentOS"
   - name: install httpd package
     yum:
       name: httpd
       state: latest
+    when: ansible_distribution == "CentOS"
+  - name: install php
+    yum:
+      name: php
+      state: latest
+    when: ansible_distribution == "CentOS"
