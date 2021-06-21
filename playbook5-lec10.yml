@@ -1,6 +1,8 @@
 ---
 - hosts: all
   become: true
+  # you could ad here a 
+  # pre-tasks: to add playes that coome before the ones undder tasks
   tasks:
   - name: install updates (CentOS)
     tags: always
