@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+  - name: install httpd, php, git packages
+    package:
+      name: 
+        - "{{ apache_package }}"
+        - "{{ php_package }}"
+        - "{{ git_package }}"
+      state: latest
+    when: ansible_distribution == "CentOS" and ansible_distribution_version =="8.3"
+  
