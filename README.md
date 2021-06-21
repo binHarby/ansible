@@ -1,23 +1,30 @@
-## *lecture 4*
-1.	cloned our ansible git repo to `~/Devops/` + renamed file to Ansible*
+## *Lecture 4*
+1.	cloned our ansible git repo to `~/Devops/` + renamed file to Ansible
 2.	pushed to the repo
 3.	made a file named inventory in `~/Devops/Ansible`, added all the vms ips to it (bridge-adapter
   config)
-cmd1: 
+
+#### Cmd1: 
 
 ``` bash
 ansible all --key-file ~/.ssh/ansible -i inventory -m ping
 ```
+#### created & added to ansible.cfg at `~/Devops/Ansible`
 ```
-added inventory = inventory 
+[defaults]
+inventory = inventory 
 private_key_file = ~/.ssh/ansible
 ```
-NOTE: this overrides the default ansible config on /etc/ansible
-cmd2: 
+NOTE: `~/Devops/Ansible/ansible.cfg `overrides the default ansible config on `/etc/ansible`
+
+#### Cmd2: 
+
 ```bash
 ansible all -m ping 
 ```
-Ouput:
+
+#### Ouput:
+
 ```
 osboxes@192.168.0.148 | SUCCESS => {
     "ansible_facts": {
@@ -42,7 +49,8 @@ osboxes@192.168.0.135 | SUCCESS => {
 }
 ```
 
-cmd3: 
+#### Cmd3: 
+
 ```bash
 ansible all --list-hosts
 ```
