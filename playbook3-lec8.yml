@@ -4,8 +4,13 @@
   become: true
   tasks:
   - name: install httpd, php, git packages
+    #NOTE1 package is a generic filemanager for ansible supported distros
     package:
+      update_only: yes
+      update_cache: yes
       name: 
+        #NOTE2: the hypen starting lines here are different packages
+        #NOTE3: the {{}} are variables defined in the inventory dir
         - "{{ apache_package }}"
         - "{{ php_package }}"
         - "{{ git_package }}"

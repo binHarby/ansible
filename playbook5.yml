@@ -1,0 +1,48 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: install updates (CentOS)
+    dnf:
+      update_only: yes
+      update_cache: yes
+    when: ansible_distribution == "CentOS"
+  - name: install updates (Ubuntu)
+    apt:
+      upgrade: dist
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+#NOTE: we specfied 'web_server' group, which was defined in the inventory file
+- hosts: web_server
+  become: true
+  tasks:
+  - name: install httpd and php packages for CentOS servers
+    yum:
+      name: 
+        - httpd
+        - php
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "CentOS"
+  - name: install apache and php for Ubuntu Servers
+    apt:
+      name: 
+        - libapache2-mod-php
+        - apache2
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+- hosts: db_server
+  become: true
+  tasks:
+  - name: install mariadb for CentOS servers
+    yum:
+      name: mariadb
+      state: latest
+    when: ansible_distribution == "CentOS"
+  - name: install apache and php for Ubuntu Servers
+    apt:
+      name: mariadb-server 
+      state: latest
+    when: ansible_distribution == "Ubuntu"
