@@ -1,0 +1,7 @@
+ansible all --key-file ~/.ssh/ansible -i inventory -m ping
+**
+added inventory = inventory 
+private_key_file = ~/.ssh/ansible
+**
+NOTE: this overrides the default ansible config on /etc/ansible
+
