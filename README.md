@@ -10,7 +10,7 @@
 ansible all --key-file ~/.ssh/ansible -i inventory -m ping
 ```
 #### created & added to ansible.cfg at `~/Devops/Ansible`
-```
+```ansible
 [defaults]
 inventory = inventory 
 private_key_file = ~/.ssh/ansible
