@@ -114,3 +114,7 @@ Writing our first playbook
       name: httpd
       state: absent
 ```
+## Lecture 7
+
+Covered the When conditional, we used when:ansible_distribution=="CentOS", check playbook for more details
+

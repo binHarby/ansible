@@ -11,14 +11,15 @@
     #if you don't know the OS
     #use the command 
     #ansible all -m gather_facts --limit <an_ip> |grep distri
-    when: ansible_distribution == "CentOS"
+    #you can also specfy version, and appened it to the when conditinal with 'and' key word
+    when: ansible_distribution == "CentOS" and ansible_distribution_version =="8.3"
   - name: install httpd package
     yum:
       name: httpd
       state: latest
-    when: ansible_distribution == "CentOS"
+    when: ansible_distribution == "CentOS" and ansible_distribution_version =="8.3"
   - name: install php
     yum:
       name: php
       state: latest
-    when: ansible_distribution == "CentOS"
+    when: ansible_distribution == "CentOS" and ansible_distribution_version =="8.3"
