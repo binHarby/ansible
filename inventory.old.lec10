@@ -1,0 +1,8 @@
+[web_server]
+osboxes@192.168.0.145
+
+[chat_server]
+osboxes@192.168.0.148
+
+[db_server]
+osboxes@192.168.0.135

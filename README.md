@@ -118,3 +118,25 @@ Writing our first playbook
 
 Covered the When conditional, we used when:ansible_distribution=="CentOS", check playbook for more details
 
+## Lecture 8 & 9 in the files
+
+## Lecture 10
+
+#### Cmd:
+To list tags in a play book
+
+```bash
+
+ansible-playbook --list-tags <playbook.yml>
+
+```
+#### Cmd: 
+
+```bash 
+
+ansible-playbook --ask-become-pass --tags <tag_names> <pb.yml> 
+
+#Or
+ansible-playbook --ask-become-pass --tags "tag names here" <pb.yml> 
+
+```
