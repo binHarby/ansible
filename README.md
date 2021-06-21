@@ -10,7 +10,8 @@
 ansible all --key-file ~/.ssh/ansible -i inventory -m ping
 ```
 #### created & added to ansible.cfg at `~/Devops/Ansible`
-```ansible
+```bash
+#contents of ansible.cfg
 [defaults]
 inventory = inventory 
 private_key_file = ~/.ssh/ansible
@@ -60,3 +61,25 @@ ansible all --list-hosts
     osboxes@192.168.0.148
     osboxes@192.168.0.135
 ```
+#### Cmd4:
+```bash
+ansible all -m gather_facts 
+```
+#### Cmd5:
+```bash
+ansible all -m gather_facts  --limit <ip_addr>
+```
+
+## Lecture 5
+
+#### Cmd6:
+
+```bash
+ansible all -m yum -a "name=epel-release state=latest" --become --ask-become-pass
+```
+*NOTE: check for each package options (in this case yum) for options of what you can do with each of them*
+
+## Lecture 6:
+
+Writing our first playbook
+
